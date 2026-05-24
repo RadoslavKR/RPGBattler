@@ -28,3 +28,23 @@ unsigned int inputNumberOptions(unsigned int maxNum)
 
 	return number;
 }
+
+bool inputYesNoQ() {
+	std::string userInput;
+	std::cin >> userInput;
+	
+	if (userInput.size() > 1) {
+		throw std::logic_error("Invalid input please write only Y/N:\n");
+	}
+
+	if (userInput[0] != 'Y' && userInput[0] != 'y' && userInput[0] != 'n' && userInput[0] != 'N') {
+		throw std::logic_error("Invalid input please write Y/N:\n");
+	}
+
+	if (userInput[0] == 'Y' || userInput[0] == 'y') {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
